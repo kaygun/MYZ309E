@@ -40,7 +40,7 @@ below) working with real-world datasets sourced from open data repositories. I w
 apply their acquired knowledge in meaningful ways. You will use real datasets drawn from wide
 variety of domains including finance, healthcare, geospatial analysis, and social sciences.
 
-## Assessments
+## Assessment
 
 | **Homework**   | **Date** | **Percentage** |
 |----------------|----------|----------------|
