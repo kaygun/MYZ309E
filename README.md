@@ -117,6 +117,10 @@ with no response. You are hereby warned.
 
 ## Weekly Course Plan
 
+Caveat emptor! The weekly plan I share here is a *plan*, and as with all plans they change. I may
+go fast or slow depending on the week. I may change the order of material you see below, remove, or
+add new material depending on the questions, comments, or requests.
+
 | **Week** | **Subject**                                                                            |
 |----------|----------------------------------------------------------------------------------------|
 | Feb 18   | Data science, machine learning, statistics and computer science.                       |
