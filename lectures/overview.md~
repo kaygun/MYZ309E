@@ -1,0 +1,110 @@
+---
+title: Artificial Intelligence in Mathematical Engineering (MYZ 309E)
+author: Atabey Kaygun
+date: Tuesday, February 18, 2025
+incremental: true
+---
+
+## Course overview
+
+### Who am I?
+
+Originally theoretical math (algebra) turned data analyst by demand
+
+- statical data analysis
+- time series analysis
+- text analysis
+- topological data analysis
+
+## Syllabus and Assessment
+
+### Overview of the Syllabus
+
+### Assessment
+
+- 4 homework projects 
+- final proposal (2000 words)
+- final project (5000 words)
+
+### The Final Proposal
+
+- minimum of 2000 words (~4 pages)
+- dataset(s) with detailed description
+- questions you ask the dataset(s)
+- methods you are going to use
+- list of team members
+- division of labor (who will do what)
+
+### The Final Project
+
+- minimum 5000 words (~10 pages)
+- dataset(s)
+- hardware and software
+- question(s)
+- methods to extract answers from the dataset(s)
+- obstacles and solutions
+- analysis (what, why, how)
+- workload breakdown (who, what, how much work)
+
+### Use of LLMs
+
+I allow and even encourage students to large language models (ChatGPT, Claude2, LLAMA2 etc).
+
+Your required to document the usage through logged transcripts.
+
+Transparency and maintaining academic integrity.
+
+
+## The Tools
+
+### Python 
+
+- Popular open source programming language
+- Flexible language good for beginners
+- Widely used in industry and research
+- Many libraries for data analysis 
+  + Pandas, 
+  + Numpy, 
+  + Scikit-Learn etc.
+
+### Jupyter Notebooks
+
+Notebooks are ideal for constructing a coherent narrative analysis of data because
+
+- Interactive
+- Versatile (many languages) [JU](https://julialang.org/)(lia)[PYT](https://www.python.org/)(hon)e[R](https://www.r-project.org/)
+- Supports code, text, and visualization in the same context
+
+### Package Managers
+
+Package manager manages the libraries installed on your system:
+
+- [anaconda](https://docs.conda.io/en/latest/)
+- [pip](https://pypi.org/project/pip/)
+
+### Online Compute Platforms
+
+* [CoCalc](https://cocalc.com/) 
+* [Google Colab](https://colab.research.google.com/)
+* [Microsoft Azure Notebooks](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/)
+* [Kaggle](https://www.kaggle.com/)
+
+### Git
+
+Git is a version control system. [(Image source)](https://github.com/crc8/GitVersionTree)
+
+<img src="../images/git-branches-merge.png" height="450">
+
+### GitHub
+
+GitHub is a sharing platform. [(Image source)](https://support.nesi.org.nz/hc/en-gb/articles/360001508515-Git-Reference-Sheet)
+
+![](../images/git.svg)
+
+
+### Markdown
+
+[Markdown](https://en.wikipedia.org/wiki/Markdown) is a markup
+language like HTML, but [much simpler](https://www.markdownguide.org/cheat-sheet/).
+
+
