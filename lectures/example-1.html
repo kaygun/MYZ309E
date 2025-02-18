@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>example-1</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {  background-color: #f8f8f8; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ef2929; } /* Alert */
+    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #204a87; } /* Attribute */
+    code span.bn { color: #0000cf; } /* BaseN */
+    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4e9a06; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #8f5902; font-style: italic; } /* Comment */
+    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+    code span.dt { color: #204a87; } /* DataType */
+    code span.dv { color: #0000cf; } /* DecVal */
+    code span.er { color: #a40000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #0000cf; } /* Float */
+    code span.fu { color: #204a87; font-weight: bold; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+    code span.ot { color: #8f5902; } /* Other */
+    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+    code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+    code span.ss { color: #4e9a06; } /* SpecialString */
+    code span.st { color: #4e9a06; } /* String */
+    code span.va { color: #000000; } /* Variable */
+    code span.vs { color: #4e9a06; } /* VerbatimString */
+    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/home/kaygun/local/lib/mlisp.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<h1 id="prompt-1">Prompt # 1</h1>
+<pre><code>&lt;context&gt;
+You are a senior programmer and data scientist working at a data science startup. You have
+several junior data scientist working under you, and you are helping them to understand
+company&#39;s code base. Your task is to write protype code for a task, and they need to refactor
+your code. They need to rewrite the code to make it more efficient and then they need merge
+newly written code into company&#39;s code base.
+&lt;/context&gt;
+&lt;task&gt;
+Explain what the following block of python code does with the context given above. Be direct.
+The audience knows the mathematical theory behind the code. So, provide mathematical details
+with formulas if necessary.
+
+    X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
+    Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
+    mean_x = X.mean()
+    mean_y = Y.mean()
+    m = ((X - mean_x) * (Y - mean_y)).sum() / np.power(X - mean_x, 2).sum()
+    b = mean_y - m * mean_x
+    
+&lt;/task&gt;</code></pre>
+<h1 id="answer-1">Answer # 1</h1>
+<p>The provided Python code block is implementing the calculation of the
+parameters for a simple linear regression line. The goal is to find the
+best-fit line through a set of points, which minimizes the sum of
+squared differences between observed values and those predicted by the
+line. This can be described mathematically as finding <span
+class="math inline">\(m\)</span> (the slope) and <span
+class="math inline">\(b\)</span> (the y-intercept) in the linear
+equation:</p>
+<p><span class="math display">\[ Y = mX + b \]</span></p>
+<p>Here’s a step-by-step breakdown of what each part of the code
+does:</p>
+<ol class="incremental" type="1">
+<li><strong>Data Preparation</strong>:
+<ul class="incremental">
+<li><code>X</code> and <code>Y</code> are numpy arrays representing the
+independent variable data points and dependent variable data points,
+respectively.</li>
+<li>These are converted to float type to ensure accurate
+calculations.</li>
+</ul></li>
+<li><strong>Mean Calculation</strong>:
+<ul class="incremental">
+<li><code>mean_x = X.mean()</code>: Computes the mean (average) of all
+values in array <span class="math inline">\(X\)</span>.</li>
+<li><code>mean_y = Y.mean()</code>: Computes the mean (average) of all
+values in array <span class="math inline">\(Y\)</span>.</li>
+</ul></li>
+<li><strong>Slope Calculation (<span
+class="math inline">\(m\)</span>)</strong>:
+<ul class="incremental">
+<li><p>The formula for calculating the slope <span
+class="math inline">\(m\)</span> is derived from the least squares
+method and can be expressed as:</p>
+<p><span class="math display">\[
+m = \frac{\sum{(X_i - \bar{X})(Y_i - \bar{Y})}}{\sum{(X_i - \bar{X})^2}}
+\]</span></p></li>
+<li><p><code>((X - mean_x) * (Y - mean_y)).sum()</code>: Computes the
+numerator, which is the sum of products of deviations of <span
+class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span> from their respective means.</p></li>
+<li><p><code>np.power(X - mean_x, 2).sum()</code>: Computes the
+denominator, which is the sum of squared deviations of <span
+class="math inline">\(X\)</span> from its mean.</p></li>
+</ul></li>
+<li><strong>Intercept Calculation (<span
+class="math inline">\(b\)</span>)</strong>:
+<ul class="incremental">
+<li><p>Once the slope <span class="math inline">\(m\)</span> is known,
+the y-intercept <span class="math inline">\(b\)</span> can be calculated
+using:</p>
+<p><span class="math display">\[
+b = \bar{Y} - m \times \bar{X}
+\]</span></p></li>
+<li><p><code>b = mean_y - m * mean_x</code>: Implements this formula to
+compute the intercept.</p></li>
+</ul></li>
+</ol>
+<p>Overall, the code calculates the slope and intercept for a linear
+regression model that fits the data points defined in arrays <span
+class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span>. This line can then be used to predict
+<span class="math inline">\(Y\)</span> values given new <span
+class="math inline">\(X\)</span> inputs.</p>
+<h1 id="prompt-2">Prompt # 2</h1>
+<pre><code>&lt;task&gt;
+Your team is asked to process a dataset provided by Istanbul Municipality data server. Here is sample of the provided dataset:
+
+&lt;data&gt;
+transition_date     transition_hour     transport_type_id   road_type   line    transfer_type   number_of_passage   number_of_passenger     product_kind    transaction_type_desc   town    line_name   station_poi_desc_cd
+0   2024-10-01  0   1   OTOYOL  CEBECI - TAKSIM     Normal  3   3   TAM     Tam Kontur  SARIYER     36T     NaN
+1   2024-10-01  0   1   OTOYOL  USKUDAR-GUZELTEPE-UMRANIYE DEVLET HASTANESI     Aktarma     2   2   INDIRIMLI1  Indirimli Aktarma   BAKIRKOY    15B     NaN
+2   2024-10-01  0   1   OTOYOL  SARIYER-HACIOSMAN-MECIDIYEKOY-TAKSIM    Normal  1   1   TAM     Tam Abonman     KAGITHANE   25G     NaN
+3   2024-10-01  0   1   OTOYOL  YESILPINAR - ALIBEYKOY METRO    Aktarma     1   1   TAM     Tam Aktarma     BAKIRKOY    TM10    NaN
+4   2024-10-01  0   1   OTOYOL  UMRANIYE DEV.HAST-CAKMAK MAH-ATASEHIR-USTBOSTANCI   Aktarma     1   1   INDIRIMLI2  Indirimli Tip 2 Aktarma
+&lt;/data&gt;
+
+You wrote the following piece of code using duckdb:
+&lt;code&gt;
+result = db.sql(&quot;&quot;&quot;
+  select sum(number_of_passage) as total, transition_hour as hour 
+     from data
+     where road_type = &#39;RAYLI&#39;
+     group by hour
+     order by hour
+&quot;&quot;&quot;).to_df()
+&lt;/code&gt;
+Explain in detail what this piece of code does. The previous instructions are still valid.
+&lt;/task&gt;</code></pre>
+<h1 id="answer-2">Answer # 2</h1>
+<p>The provided code snippet is written using DuckDB, which is an
+in-process SQL OLAP database management system. It’s designed to handle
+analytical queries on datasets and is especially useful for working with
+large dataframes directly in Python.</p>
+<p>Here’s a detailed explanation of what the code does:</p>
+<ol class="incremental" type="1">
+<li><strong>Database Connection</strong>:
+<ul class="incremental">
+<li>The code assumes that there is a DuckDB database instance named
+<code>db</code>. This instance is used to execute SQL queries against
+the dataset, which we assume has been loaded into this database under
+the table name <code>data</code>.</li>
+</ul></li>
+<li><strong>SQL Query Execution</strong>:
+<ul class="incremental">
+<li><code>db.sql(...)</code>: Executes an SQL query within the context
+of the connected DuckDB instance.</li>
+</ul></li>
+<li><strong>SQL Query Details</strong>:
+<ul class="incremental">
+<li><p>The SQL query is wrapped in a string and passed to
+<code>db.sql()</code>. It performs several operations on the
+dataset:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">sum</span>(number_of_passage) <span class="kw">as</span> total, transition_hour <span class="kw">as</span> <span class="kw">hour</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">data</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> road_type <span class="op">=</span> <span class="st">&#39;RAYLI&#39;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="kw">hour</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">hour</span>;</span></code></pre></div></li>
+<li><p><strong>SELECT Clause</strong>: Specifies that we want to
+retrieve two columns:</p>
+<ul class="incremental">
+<li><code>sum(number_of_passage) as total</code>: Computes the sum of
+the <code>number_of_passage</code> column for each group and labels it
+as <code>total</code>.</li>
+<li><code>transition_hour as hour</code>: Selects the
+<code>transition_hour</code> column and renames it as
+<code>hour</code>.</li>
+</ul></li>
+<li><p><strong>FROM Clause</strong>: Indicates that the data is being
+selected from a table named <code>data</code>.</p></li>
+<li><p><strong>WHERE Clause</strong>: Filters the dataset to include
+only rows where the <code>road_type</code> is equal to
+<code>'RAYLI'</code>. This means we’re focusing our analysis
+specifically on transportation events occurring on roads of this
+type.</p></li>
+<li><p><strong>GROUP BY Clause</strong>: Groups the results by the
+<code>transition_hour</code>. For each unique hour, it calculates the
+sum of <code>number_of_passage</code>.</p></li>
+<li><p><strong>ORDER BY Clause</strong>: Orders the final output by
+<code>hour</code> in ascending order. This ensures that the result set
+is sorted chronologically by hour.</p></li>
+</ul></li>
+<li><strong>Conversion to DataFrame</strong>:
+<ul class="incremental">
+<li><code>.to_df()</code>: Converts the resulting SQL query result into
+a pandas DataFrame, which is stored in the variable
+<code>result</code>.</li>
+</ul></li>
+<li><strong>Purpose of the Code</strong>:
+<ul class="incremental">
+<li>The overall purpose of this code block is to calculate and organize
+the total number of passages that occur for each hour on roads
+classified as <code>'RAYLI'</code>. The output is a structured DataFrame
+where each row represents an hour with its corresponding total number of
+passages.</li>
+</ul></li>
+</ol>
+<p>This analysis could be useful for understanding traffic patterns or
+passenger flow specifically related to certain road types during
+different hours of the day.</p>
+<h1 id="prompt-3">Prompt # 3</h1>
+<p>Even if we are careful in constructing our prompts, LLMs sometimes
+tend to <em>hallucinate</em> Consider the following exchanges:</p>
+<h2 id="prompt">Prompt</h2>
+<pre><code>&lt;instructions&gt;
+We have a data frame at the URL https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv 
+How do we import the data into a DataFrame using pandas library?
+&lt;/instructions&gt;</code></pre>
+<h2 id="answer">Answer</h2>
+<p>To import the hourly transportation data into a DataFrame using
+pandas, you can use the following code:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># URL of the dataset</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&#39;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file into a DataFrame</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the DataFrame to verify the data</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div>
+<p>This code imports the pandas library, sets the URL of the dataset,
+reads the CSV file into a DataFrame using <code>pd.read_csv()</code>,
+and prints the first few rows of the DataFrame to ensure that the data
+was imported correctly.</p>
+<p>Please note that you may need to install the required libraries (in
+this case, pandas) by running <code>pip install pandas</code> in your
+command line before running this code.</p>
+<h2 id="prompt-4">Prompt</h2>
+<pre><code>&lt;instructions&gt;
+Here is the first 4 lines of the data frame we imported:
+&lt;data&gt;
+transition_date     transition_hour     transport_type_id   road_type   line    transfer_type   number_of_passage   number_of_passenger     product_kind    transaction_type_desc   town    line_name   station_poi_desc_cd
+0   2024-10-01  0   1   OTOYOL  CEBECI - TAKSIM     Normal  3   3   TAM     Tam Kontur  SARIYER     36T     NaN
+1   2024-10-01  0   1   OTOYOL  USKUDAR-GUZELTEPE-UMRANIYE DEVLET HASTANESI     Aktarma     2   2   INDIRIMLI1  Indirimli Aktarma   BAKIRKOY    15B     NaN
+2   2024-10-01  0   1   OTOYOL  SARIYER-HACIOSMAN-MECIDIYEKOY-TAKSIM    Normal  1   1   TAM     Tam Abonman     KAGITHANE   25G     NaN
+3   2024-10-01  0   1   OTOYOL  YESILPINAR - ALIBEYKOY METRO    Aktarma     1   1   TAM     Tam Aktarma     BAKIRKOY    TM10    NaN
+4   2024-10-01  0   1   OTOYOL  UMRANIYE DEV.HAST-CAKMAK MAH-ATASEHIR-USTBOSTANCI   Aktarma     1   1   INDIRIMLI2  Indirimli Tip 2 Aktarma
+&lt;/data&gt;
+Using duckdb, write a piece of code that filters the dataframe where the column &#39;road_type&#39; is &#39;RAYLI&#39;.
+&lt;/instruction&gt;</code></pre>
+<h2 id="answer-3">Answer</h2>
+<p>Here’s an example of how you can filter the DataFrame using
+DuckDB:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Create a connection to the dataset</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> hourly_transportation <span class="kw">AS</span> <span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> @hourly_transportation_202410;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Filter the DataFrame where &#39;road_type&#39; is &#39;RAYLI&#39;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> hourly_transportation <span class="kw">WHERE</span> road_type <span class="op">=</span> <span class="st">&#39;RAYLI&#39;</span>;</span></code></pre></div>
+<p>However, since we’re using pandas and DuckDB’s python interface
+(pyduckdb), we can use the following code:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyducksql</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a connection to the dataset</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> pyducksql.<span class="ex">connect</span>(<span class="st">&#39;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&#39;</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the DataFrame where &#39;road_type&#39; is &#39;RAYLI&#39;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="op">=</span> conn.execute(<span class="st">&#39;SELECT * FROM hourly_transportation WHERE road_type = </span><span class="ch">\&#39;</span><span class="st">RAYLI</span><span class="ch">\&#39;</span><span class="st">&#39;</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the filtered DataFrame</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_filtered)</span></code></pre></div>
+<p>This code connects to the dataset, filters the DataFrame using
+DuckDB’s SQL syntax, and prints the filtered results.</p>
+<h3 id="bingo">Bingo!</h3>
+<p>We got a false answer. This code looks legitimate but it is
+completely wrong. For this example I used <code>llama3.2</code>.</p>
+<p>Here is ChatGPT with the same instructions:</p>
+<h2 id="prompt-5">Prompt</h2>
+<pre><code>&lt;instructions&gt;
+We have a data frame at the URL https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv 
+How do we import the data into a DataFrame using pandas library?
+&lt;/instructions&gt;</code></pre>
+<h2 id="answer-4">Answer</h2>
+<p>To import the CSV data from the provided URL into a Pandas DataFrame,
+you can use the following Python code:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&quot;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div>
+<h2 id="prompt-6">Prompt</h2>
+<pre><code>&lt;instructions&gt;
+Here is the first 4 lines of the data frame we imported:
+&lt;data&gt;
+transition_date     transition_hour     transport_type_id   road_type   line    transfer_type   number_of_passage   number_of_passenger     product_kind    transaction_type_desc   town    line_name   station_poi_desc_cd
+0   2024-10-01  0   1   OTOYOL  CEBECI - TAKSIM     Normal  3   3   TAM     Tam Kontur  SARIYER     36T     NaN
+1   2024-10-01  0   1   OTOYOL  USKUDAR-GUZELTEPE-UMRANIYE DEVLET HASTANESI     Aktarma     2   2   INDIRIMLI1  Indirimli Aktarma   BAKIRKOY    15B     NaN
+2   2024-10-01  0   1   OTOYOL  SARIYER-HACIOSMAN-MECIDIYEKOY-TAKSIM    Normal  1   1   TAM     Tam Abonman     KAGITHANE   25G     NaN
+3   2024-10-01  0   1   OTOYOL  YESILPINAR - ALIBEYKOY METRO    Aktarma     1   1   TAM     Tam Aktarma     BAKIRKOY    TM10    NaN
+4   2024-10-01  0   1   OTOYOL  UMRANIYE DEV.HAST-CAKMAK MAH-ATASEHIR-USTBOSTANCI   Aktarma     1   1   INDIRIMLI2  Indirimli Tip 2 Aktarma
+&lt;/data&gt;
+Using duckdb, write a piece of code that filters the dataframe where the column &#39;road_type&#39; is &#39;RAYLI&#39;.
+&lt;/instructions&gt;</code></pre>
+<h2 id="answer-5">Answer</h2>
+<p>Here’s how you can filter the DataFrame using DuckDB for rows where
+road_type is ‘RAYLI’:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&quot;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Use DuckDB to filter the DataFrame</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">&quot;SELECT * FROM df WHERE road_type = &#39;RAYLI&#39;&quot;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> duckdb.query(query).to_df()</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the filtered data</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(filtered_df.head())</span></code></pre></div>
+<h2 id="prompt-7">Prompt</h2>
+<pre><code>Write a piece of code using duckdb that filters the dataframe where the column &#39;road_type&#39; is &#39;RAYLI&#39; and group by the column transition_hour. Then the code should sum up number_of_passage and finally display the results by sorting the results with respect to transition_hour.</code></pre>
+<h2 id="answer-6">Answer</h2>
+<p>Here’s a complete code snippet using DuckDB to filter, group, sum,
+and sort the DataFrame as specified:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&quot;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># DuckDB query to filter, group, sum, and sort</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT </span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="st">    transition_hour, </span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="st">    SUM(number_of_passage) AS total_passages</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="st">FROM df</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE road_type = &#39;RAYLI&#39;</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY transition_hour</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY transition_hour</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the query</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>result_df <span class="op">=</span> duckdb.query(query).to_df()</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the result</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result_df)</span></code></pre></div>
+</body>
+</html>
