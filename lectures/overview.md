@@ -95,14 +95,7 @@ system. [(Image source)](https://github.com/crc8/GitVersionTree)
 
 ![](../images/git.svg)
 
-## Jupyter and Markdown
-
-### Markdown
-
-- The most important part of your HWs, proposal, and the project are the text! 
-- Text in jupyter notebooks need to be written in [Markdown](https://en.wikipedia.org/wiki/Markdown).
-- Markdown is a markup language like HTML, but [much simpler](https://www.markdownguide.org/cheat-sheet/).
-- Learn markdown.
+## Jupyter
 
 ### Jupyter Notebooks
 
@@ -155,6 +148,13 @@ Many libraries for data analysis
 - Simple
 
 We will use via [DuckDB](https://duckdb.org/).
+
+### Markdown
+
+- The most important part of your HWs, proposal, and the project are the text! 
+- Text in jupyter notebooks need to be written in [Markdown](https://en.wikipedia.org/wiki/Markdown).
+- Markdown is a markup language like HTML, but [much simpler](https://www.markdownguide.org/cheat-sheet/).
+- Learn markdown.
 
 ## Data
 
@@ -262,6 +262,18 @@ Data may be stored in
 3. Validate the model using the fit function.
 4. If necessary go back to step 2, 3 or 4.
 5. Write a report.
+
+### Basic Principles for Writing Analyses
+
+- Provide reasons before drawing conclusions.
+- Build clear arguments to support conclusions.
+- Be consistent.
+- Stick to the subject.
+- Look for flaws in your own reasoning and others'.
+- Draw conclusions on sufficient relevant facts and evidence.
+- Check if your reasoning fits the relevant facts.
+- Use your background knowledge and common sense.
+- Defer to expert opinion if available.
 
 ### How is it different than Science?
 
