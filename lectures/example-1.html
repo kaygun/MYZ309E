@@ -52,38 +52,39 @@
       }
     pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
     div.sourceCode
-      {  background-color: #f8f8f8; }
+      {   }
     @media screen {
     pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span.al { color: #ef2929; } /* Alert */
-    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #204a87; } /* Attribute */
-    code span.bn { color: #0000cf; } /* BaseN */
-    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4e9a06; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #8f5902; font-style: italic; } /* Comment */
-    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-    code span.dt { color: #204a87; } /* DataType */
-    code span.dv { color: #0000cf; } /* DecVal */
-    code span.er { color: #a40000; font-weight: bold; } /* Error */
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
     code span.ex { } /* Extension */
-    code span.fl { color: #0000cf; } /* Float */
-    code span.fu { color: #204a87; font-weight: bold; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-    code span.ot { color: #8f5902; } /* Other */
-    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-    code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
-    code span.ss { color: #4e9a06; } /* SpecialString */
-    code span.st { color: #4e9a06; } /* String */
-    code span.va { color: #000000; } /* Variable */
-    code span.vs { color: #4e9a06; } /* VerbatimString */
-    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="/home/kaygun/local/lib/mlisp.css" />
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -92,95 +93,289 @@
   type="text/javascript"></script>
 </head>
 <body>
-<h1 id="prompt-1">Prompt # 1</h1>
-<pre><code>&lt;context&gt;
-You are a senior programmer and data scientist working at a data science startup. You have
-several junior data scientist working under you, and you are helping them to understand
-company&#39;s code base. Your task is to write protype code for a task, and they need to refactor
-your code. They need to rewrite the code to make it more efficient and then they need merge
-newly written code into company&#39;s code base.
-&lt;/context&gt;
-&lt;task&gt;
-Explain what the following block of python code does with the context given above. Be direct.
-The audience knows the mathematical theory behind the code. So, provide mathematical details
-with formulas if necessary.
+<h1 id="prompt">Prompt</h1>
+<pre><code>&lt;task&gt;
+Rewrite the following e-mail. 
+&lt;/task&gt;
+&lt;instructions&gt;
+Be polite, direct, and concise. State what you need in the first two sentences. Sign your e-mail with your name and student number. 
+&lt;/instructions&gt;
+&lt;email&gt;
+Hi teacher, 
+I was coming to school today but the bus broke down. I was so stressed. I tried to find other busses but the road was closed. 
+The weather was also bad. So, I missed our lecture. My name is Ali. I don&#39;t know any body from the class either. I started one 
+semester late. I am an &quot;irregular&quot;. Can you send me your class notes? Is there any place I can get them. This would be 
+super helpful. 
 
+See you next week teacher.
+&lt;/email&gt;</code></pre>
+<h1 id="response">Response</h1>
+<pre><code>Hello Teacher,
+
+I unfortunately missed today&#39;s lecture due to transportation issues. I would be grateful if you could provide me with a copy of the class notes. Is there a central location where I can access them?
+
+Thank you for your understanding.
+
+Sincerely,
+Ali
+[Student Number]</code></pre>
+<h1 id="prompt-1">Prompt # 1</h1>
+<pre><code>&lt;task&gt;
+Explain what the following block of python code does with the context given below. 
+&lt;/task&gt;
+&lt;instructions&gt;
+Be direct. Do not simplify the language.  The audience knows the mathematical theory 
+behind the code. So, provide mathematical details with formulas if necessary.
+&lt;/instructions&gt;
+&lt;code&gt;
     X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
     Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
     mean_x = X.mean()
     mean_y = Y.mean()
     m = ((X - mean_x) * (Y - mean_y)).sum() / np.power(X - mean_x, 2).sum()
-    b = mean_y - m * mean_x
-    
-&lt;/task&gt;</code></pre>
+    b = mean_y - m * mean_x 
+&lt;/code&gt;
+&lt;context&gt;
+You are a senior programmer and data scientist working at a data science startup. You have
+several junior data scientist working under you, and you are helping them to understand
+company&#39;s code base. Your task is to write protype code for a task, and they need to refactor
+your code. They need to rewrite the code to make it more efficient and then they need merge
+newly written code into company&#39;s code base.
+&lt;/context&gt;</code></pre>
 <h1 id="answer-1">Answer # 1</h1>
-<p>The provided Python code block is implementing the calculation of the
-parameters for a simple linear regression line. The goal is to find the
-best-fit line through a set of points, which minimizes the sum of
-squared differences between observed values and those predicted by the
-line. This can be described mathematically as finding <span
-class="math inline">\(m\)</span> (the slope) and <span
-class="math inline">\(b\)</span> (the y-intercept) in the linear
-equation:</p>
+<p>This block of Python code computes the <strong>ordinary least squares
+(OLS) regression coefficients</strong> for a simple linear regression
+model:</p>
 <p><span class="math display">\[ Y = mX + b \]</span></p>
-<p>Here’s a step-by-step breakdown of what each part of the code
-does:</p>
-<ol class="incremental" type="1">
-<li><strong>Data Preparation</strong>:
-<ul class="incremental">
-<li><code>X</code> and <code>Y</code> are numpy arrays representing the
-independent variable data points and dependent variable data points,
-respectively.</li>
-<li>These are converted to float type to ensure accurate
-calculations.</li>
-</ul></li>
-<li><strong>Mean Calculation</strong>:
-<ul class="incremental">
-<li><code>mean_x = X.mean()</code>: Computes the mean (average) of all
-values in array <span class="math inline">\(X\)</span>.</li>
-<li><code>mean_y = Y.mean()</code>: Computes the mean (average) of all
-values in array <span class="math inline">\(Y\)</span>.</li>
-</ul></li>
-<li><strong>Slope Calculation (<span
-class="math inline">\(m\)</span>)</strong>:
-<ul class="incremental">
-<li><p>The formula for calculating the slope <span
-class="math inline">\(m\)</span> is derived from the least squares
-method and can be expressed as:</p>
-<p><span class="math display">\[
-m = \frac{\sum{(X_i - \bar{X})(Y_i - \bar{Y})}}{\sum{(X_i - \bar{X})^2}}
-\]</span></p></li>
-<li><p><code>((X - mean_x) * (Y - mean_y)).sum()</code>: Computes the
-numerator, which is the sum of products of deviations of <span
+<p>where <span class="math inline">\(X\)</span> is the independent
+variable and <span class="math inline">\(Y\)</span> is the dependent
+variable.</p>
+<h2 id="define-data">Define Data</h2>
+<p>Two NumPy arrays are created:</p>
+<ul>
+<li><span class="math inline">\(X = [1, 2, 4, 6, 8, 10]\)</span></li>
+<li><span class="math inline">\(Y = [3, 5, 7, 10, 11, 14]\)</span></li>
+</ul>
+<p>These represent paired data points ((X_i, Y_i)).</p>
+<h2 id="compute-means">Compute Means</h2>
+<ul>
+<li><span class="math inline">\(\bar{X} = \frac{1}{n}\sum_{i=1}^{n}
+X_i\)</span></li>
+<li><span class="math inline">\(\bar{Y} = \frac{1}{n}\sum_{i=1}^{n}
+Y_i\)</span></li>
+</ul>
+<p>The mean values are used to center the data.</p>
+<h2 id="compute-the-slope-m-regression-coefficient">Compute the Slope
+<span class="math inline">\(m\)</span> (Regression Coefficient)</h2>
+<p>The slope <span class="math inline">\(m\)</span> is given by the
+formula:</p>
+<p><span class="math display">\[ m = \frac{\sum_{i=1}^{n} (X_i -
+\bar{X}) (Y_i - \bar{Y})}{\sum_{i=1}^{n} (X_i - \bar{X})^2}
+\]</span></p>
+<p>In the code:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> ((X <span class="op">-</span> mean_x) <span class="op">*</span> (Y <span class="op">-</span> mean_y)).<span class="bu">sum</span>() <span class="op">/</span> np.power(X <span class="op">-</span> mean_x, <span class="dv">2</span>).<span class="bu">sum</span>()</span></code></pre></div>
+<p>This implements the covariance of <span
 class="math inline">\(X\)</span> and <span
-class="math inline">\(Y\)</span> from their respective means.</p></li>
-<li><p><code>np.power(X - mean_x, 2).sum()</code>: Computes the
-denominator, which is the sum of squared deviations of <span
-class="math inline">\(X\)</span> from its mean.</p></li>
-</ul></li>
-<li><strong>Intercept Calculation (<span
-class="math inline">\(b\)</span>)</strong>:
-<ul class="incremental">
-<li><p>Once the slope <span class="math inline">\(m\)</span> is known,
-the y-intercept <span class="math inline">\(b\)</span> can be calculated
-using:</p>
-<p><span class="math display">\[
-b = \bar{Y} - m \times \bar{X}
-\]</span></p></li>
-<li><p><code>b = mean_y - m * mean_x</code>: Implements this formula to
-compute the intercept.</p></li>
-</ul></li>
-</ol>
-<p>Overall, the code calculates the slope and intercept for a linear
-regression model that fits the data points defined in arrays <span
-class="math inline">\(X\)</span> and <span
-class="math inline">\(Y\)</span>. This line can then be used to predict
-<span class="math inline">\(Y\)</span> values given new <span
-class="math inline">\(X\)</span> inputs.</p>
-<h1 id="prompt-2">Prompt # 2</h1>
-<pre><code>&lt;task&gt;
-Your team is asked to process a dataset provided by Istanbul Municipality data server. Here is sample of the provided dataset:
+class="math inline">\(Y\)</span> divided by the variance of <span
+class="math inline">\(X\)</span>.</p>
+<h2 id="compute-the-intercept-b">Compute the Intercept <span
+class="math inline">\(b\)</span></h2>
+<p>The intercept is computed as:</p>
+<p><span class="math display">\[ b = \bar{Y} - m \bar{X} \]</span></p>
+<p>In the code:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> mean_y <span class="op">-</span> m <span class="op">*</span> mean_x</span></code></pre></div>
+<p>This ensures that the regression line passes through the mean of the
+data.</p>
+<h3 id="optimization-considerations"><strong>Optimization
+Considerations</strong></h3>
+<ul>
+<li>The computation of <span class="math inline">\(m\)</span> can be
+optimized by using NumPy’s built-in
+<code>np.cov(X, Y, ddof=0)[0,1] / np.var(X, ddof=0)</code>, which is
+more efficient.</li>
+<li>The entire regression fit can be computed using
+<code>np.polyfit(X, Y, deg=1)</code>, which is optimized in C.</li>
+</ul>
+<h2 id="refactored-code">Refactored Code:</h2>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">14</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean once</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> np.mean([X, Y], axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate deviations from mean once</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>dx, dy <span class="op">=</span> X <span class="op">-</span> mean[<span class="dv">0</span>], Y <span class="op">-</span> mean[<span class="dv">1</span>]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate slope and intercept in one step</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>m, b <span class="op">=</span> np.linalg.inv(np.dot(dx.T, dx)).dot(np.dot(dx.T, dy))</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Slope:&quot;</span>, m)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Intercept:&quot;</span>, b)</span></code></pre></div>
+<h2 id="improvements">Improvements</h2>
+<ul>
+<li>The refactored code calculates the mean and deviations from the mean
+only once, which improves efficiency.</li>
+<li>The slope and intercept are calculated in a single step using matrix
+operations, which is more efficient than the original code.</li>
+</ul>
+<h1 id="prompt-2">Prompt</h1>
+<pre><code>Here is what the junior programmer gave: analyze the code for bugs: 
+&lt;code&gt;
+import numpy as np
 
+X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
+Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
+
+# Calculate mean once
+mean = np.mean([X, Y], axis=0)
+
+# Calculate deviations from mean once
+dx, dy = X - mean[0], Y - mean[1]
+
+# Calculate slope and intercept in one step
+m, b = np.linalg.inv(np.dot(dx.T, dx)).dot(np.dot(dx.T, dy))
+&lt;/code&gt;</code></pre>
+<h1 id="answer">Answer</h1>
+<p>The junior programmer’s code has a <strong>critical bug</strong> in
+the calculation of the slope <span class="math inline">\(m\)</span> and
+intercept <span class="math inline">\(b\)</span>. Let’s analyze the
+issues:</p>
+<hr />
+<h2 id="identified-bugs">Identified Bugs</h2>
+<h3 id="incorrect-mean-calculation">1. Incorrect Mean Calculation</h3>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> np.mean([X, Y], axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<ul>
+<li><p>This calculates the mean across corresponding elements in
+<code>X</code> and <code>Y</code>, not the individual means of
+<code>X</code> and <code>Y</code>.</p></li>
+<li><p>Correct approach:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mean_x, mean_y <span class="op">=</span> np.mean(X), np.mean(Y)</span></code></pre></div></li>
+</ul>
+<h3 id="incorrect-mean-deviations">2. Incorrect Mean Deviations</h3>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dx, dy <span class="op">=</span> X <span class="op">-</span> mean[<span class="dv">0</span>], Y <span class="op">-</span> mean[<span class="dv">1</span>]</span></code></pre></div>
+<ul>
+<li><p>Since <code>mean</code> is incorrectly computed as a vectorized
+mean across both <code>X</code> and <code>Y</code>, <code>mean[0]</code>
+and <code>mean[1]</code> do not represent the means of <code>X</code>
+and <code>Y</code>, respectively.</p></li>
+<li><p>Instead, they contain incorrect values due to improper
+broadcasting.</p></li>
+<li><p>Fix:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dx, dy <span class="op">=</span> X <span class="op">-</span> mean_x, Y <span class="op">-</span> mean_y</span></code></pre></div></li>
+</ul>
+<h3 id="incorrect-regression-formula">3. Incorrect Regression
+Formula</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>m, b <span class="op">=</span> np.linalg.inv(np.dot(dx.T, dx)).dot(np.dot(dx.T, dy))</span></code></pre></div>
+<h4 id="mistake">Mistake:</h4>
+<ul>
+<li><p>The slope formula in simple linear regression is:<br />
+<span class="math display">\[
+m = \frac{\sum (X_i - \bar{X}) (Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2}
+\]</span></p></li>
+<li><p>The above line incorrectly tries to use a matrix inversion
+approach meant for multiple linear regression, but in simple linear
+regression, <span class="math inline">\(X\)</span> is a vector, not a
+matrix.</p></li>
+<li><p>The correct formula should be:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.<span class="bu">sum</span>(dx <span class="op">*</span> dy) <span class="op">/</span> np.<span class="bu">sum</span>(dx  <span class="dv">2</span>)</span></code></pre></div></li>
+<li><p>Intercept <span class="math inline">\(b\)</span> is
+missing</p></li>
+<li><p>The intercept <span class="math inline">\(b\)</span> must be
+explicitly calculated:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> mean_y <span class="op">-</span> m <span class="op">*</span> mean_x</span></code></pre></div></li>
+</ul>
+<h3 id="corrected-code">Corrected Code</h3>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">14</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute correct means</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>mean_x, mean_y <span class="op">=</span> np.mean(X), np.mean(Y)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute deviations</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>dx, dy <span class="op">=</span> X <span class="op">-</span> mean_x, Y <span class="op">-</span> mean_y</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct slope computation</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.<span class="bu">sum</span>(dx <span class="op">*</span> dy) <span class="op">/</span> np.<span class="bu">sum</span>(dx  <span class="dv">2</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct intercept computation</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> mean_y <span class="op">-</span> m <span class="op">*</span> mean_x</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Slope (m): </span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">, Intercept (b): </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<h3 id="hand-corrected-code-v1">Hand Corrected Code (v1)</h3>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">14</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute correct means</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>mean_x, mean_y <span class="op">=</span> np.mean(X), np.mean(Y)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute deviations</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>dx, dy <span class="op">=</span> X <span class="op">-</span> mean_x, Y <span class="op">-</span> mean_y</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct slope computation</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.dot(dx,dy) <span class="op">/</span> np.dot(dx,dx)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct intercept computation</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> mean_y <span class="op">-</span> m <span class="op">*</span> mean_x</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Slope (m): </span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">, Intercept (b): </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<h3 id="hand-corrected-code-v2">Hand Corrected Code (v2)</h3>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">14</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute correct means</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>mean_x, mean_y <span class="op">=</span> np.mean(X), np.mean(Y)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct slope computation</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.cov(X,Y,ddof<span class="op">=</span><span class="dv">0</span>)[<span class="dv">0</span>,<span class="dv">1</span>] <span class="op">/</span> np.var(X,ddof<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct intercept computation</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> mean_y <span class="op">-</span> m <span class="op">*</span> mean_x</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Slope (m): </span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">, Intercept (b): </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<h3 id="hand-corrected-code-v3">Hand Corrected Code (v3)</h3>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">14</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>m,b <span class="op">=</span> np.polyfit(X,Y,deg<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Slope (m): </span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">, Intercept (b): </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<h1 id="prompt-3">Prompt</h1>
+<pre><code>&lt;task&gt;
+Explain in detail what this piece of code does. Provide a native pandas implementation.
+&lt;/task&gt;
+&lt;context&gt;
+You are a senior programmer and data scientist working at a data science startup. You have
+several junior data scientist working under you, and you are helping them to understand
+company&#39;s code base. Your task is to write protype code for a task, and they need to refactor
+your code. They need to rewrite the code to make it more efficient and then they need merge
+newly written code into company&#39;s code base.
+
+Your team is asked to process a dataset provided by Istanbul Municipality data server. 
+Here is sample of the provided dataset:
 &lt;data&gt;
 transition_date     transition_hour     transport_type_id   road_type   line    transfer_type   number_of_passage   number_of_passenger     product_kind    transaction_type_desc   town    line_name   station_poi_desc_cd
 0   2024-10-01  0   1   OTOYOL  CEBECI - TAKSIM     Normal  3   3   TAM     Tam Kontur  SARIYER     36T     NaN
@@ -189,8 +384,6 @@ transition_date     transition_hour     transport_type_id   road_type   line    
 3   2024-10-01  0   1   OTOYOL  YESILPINAR - ALIBEYKOY METRO    Aktarma     1   1   TAM     Tam Aktarma     BAKIRKOY    TM10    NaN
 4   2024-10-01  0   1   OTOYOL  UMRANIYE DEV.HAST-CAKMAK MAH-ATASEHIR-USTBOSTANCI   Aktarma     1   1   INDIRIMLI2  Indirimli Tip 2 Aktarma
 &lt;/data&gt;
-
-You wrote the following piece of code using duckdb:
 &lt;code&gt;
 result = db.sql(&quot;&quot;&quot;
   select sum(number_of_passage) as total, transition_hour as hour 
@@ -200,41 +393,40 @@ result = db.sql(&quot;&quot;&quot;
      order by hour
 &quot;&quot;&quot;).to_df()
 &lt;/code&gt;
-Explain in detail what this piece of code does. The previous instructions are still valid.
-&lt;/task&gt;</code></pre>
-<h1 id="answer-2">Answer # 2</h1>
+&lt;/context&gt;</code></pre>
+<h1 id="answer-2">Answer</h1>
 <p>The provided code snippet is written using DuckDB, which is an
 in-process SQL OLAP database management system. It’s designed to handle
 analytical queries on datasets and is especially useful for working with
 large dataframes directly in Python.</p>
 <p>Here’s a detailed explanation of what the code does:</p>
-<ol class="incremental" type="1">
-<li><strong>Database Connection</strong>:
-<ul class="incremental">
+<ol type="1">
+<li><p><strong>Database Connection</strong>:</p>
+<ul>
 <li>The code assumes that there is a DuckDB database instance named
 <code>db</code>. This instance is used to execute SQL queries against
 the dataset, which we assume has been loaded into this database under
 the table name <code>data</code>.</li>
 </ul></li>
-<li><strong>SQL Query Execution</strong>:
-<ul class="incremental">
+<li><p><strong>SQL Query Execution</strong>:</p>
+<ul>
 <li><code>db.sql(...)</code>: Executes an SQL query within the context
 of the connected DuckDB instance.</li>
 </ul></li>
-<li><strong>SQL Query Details</strong>:
-<ul class="incremental">
+<li><p><strong>SQL Query Details</strong>:</p>
+<ul>
 <li><p>The SQL query is wrapped in a string and passed to
 <code>db.sql()</code>. It performs several operations on the
 dataset:</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">sum</span>(number_of_passage) <span class="kw">as</span> total, transition_hour <span class="kw">as</span> <span class="kw">hour</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">data</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> road_type <span class="op">=</span> <span class="st">&#39;RAYLI&#39;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="kw">hour</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">hour</span>;</span></code></pre></div></li>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">sum</span>(number_of_passage) <span class="kw">as</span> total, transition_hour <span class="kw">as</span> <span class="kw">hour</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">data</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> road_type <span class="op">=</span> <span class="st">&#39;RAYLI&#39;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="kw">hour</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">hour</span>;</span></code></pre></div></li>
 <li><p><strong>SELECT Clause</strong>: Specifies that we want to
 retrieve two columns:</p>
-<ul class="incremental">
+<ul>
 <li><code>sum(number_of_passage) as total</code>: Computes the sum of
 the <code>number_of_passage</code> column for each group and labels it
 as <code>total</code>.</li>
@@ -256,46 +448,51 @@ sum of <code>number_of_passage</code>.</p></li>
 <code>hour</code> in ascending order. This ensures that the result set
 is sorted chronologically by hour.</p></li>
 </ul></li>
-<li><strong>Conversion to DataFrame</strong>:
-<ul class="incremental">
+<li><p><strong>Conversion to DataFrame</strong>:</p>
+<ul>
 <li><code>.to_df()</code>: Converts the resulting SQL query result into
 a pandas DataFrame, which is stored in the variable
 <code>result</code>.</li>
 </ul></li>
-<li><strong>Purpose of the Code</strong>:
-<ul class="incremental">
+<li><p><strong>Purpose of the Code</strong>:</p>
+<ul>
 <li>The overall purpose of this code block is to calculate and organize
 the total number of passages that occur for each hour on roads
 classified as <code>'RAYLI'</code>. The output is a structured DataFrame
 where each row represents an hour with its corresponding total number of
 passages.</li>
 </ul></li>
+<li><p><strong>Pandas-Based Alternative:</strong></p>
+<p>Instead of SQL, if the data is already loaded in Pandas:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> (</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    data[data[<span class="st">&quot;road_type&quot;</span>] <span class="op">==</span> <span class="st">&quot;RAYLI&quot;</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">&quot;transition_hour&quot;</span>)[<span class="st">&quot;number_of_passage&quot;</span>]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">&quot;transition_hour&quot;</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div></li>
 </ol>
-<p>This analysis could be useful for understanding traffic patterns or
-passenger flow specifically related to certain road types during
-different hours of the day.</p>
-<h1 id="prompt-3">Prompt # 3</h1>
+<h1 id="prompt-4">Prompt</h1>
 <p>Even if we are careful in constructing our prompts, LLMs sometimes
 tend to <em>hallucinate</em> Consider the following exchanges:</p>
-<h2 id="prompt">Prompt</h2>
-<pre><code>&lt;instructions&gt;
-We have a data frame at the URL https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv 
-How do we import the data into a DataFrame using pandas library?
-&lt;/instructions&gt;</code></pre>
-<h2 id="answer">Answer</h2>
+<h2 id="prompt-5">Prompt</h2>
+<pre><code>We have a data frame at the URL https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv 
+How do we import the data into a DataFrame using pandas library?</code></pre>
+<h2 id="answer-3">Answer</h2>
 <p>To import the hourly transportation data into a DataFrame using
 pandas, you can use the following code:</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># URL of the dataset</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&#39;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file into a DataFrame</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the DataFrame to verify the data</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># URL of the dataset</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&#39;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file into a DataFrame</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the DataFrame to verify the data</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div>
 <p>This code imports the pandas library, sets the URL of the dataset,
 reads the CSV file into a DataFrame using <code>pd.read_csv()</code>,
 and prints the first few rows of the DataFrame to ensure that the data
@@ -303,8 +500,11 @@ was imported correctly.</p>
 <p>Please note that you may need to install the required libraries (in
 this case, pandas) by running <code>pip install pandas</code> in your
 command line before running this code.</p>
-<h2 id="prompt-4">Prompt</h2>
-<pre><code>&lt;instructions&gt;
+<h2 id="prompt-6">Prompt</h2>
+<pre><code>&lt;task&gt;
+Using duckdb, write a piece of code that filters the dataframe where the column &#39;road_type&#39; is &#39;RAYLI&#39;.
+&lt;/task&gt;
+&lt;context&gt;
 Here is the first 4 lines of the data frame we imported:
 &lt;data&gt;
 transition_date     transition_hour     transport_type_id   road_type   line    transfer_type   number_of_passage   number_of_passenger     product_kind    transaction_type_desc   town    line_name   station_poi_desc_cd
@@ -314,54 +514,54 @@ transition_date     transition_hour     transport_type_id   road_type   line    
 3   2024-10-01  0   1   OTOYOL  YESILPINAR - ALIBEYKOY METRO    Aktarma     1   1   TAM     Tam Aktarma     BAKIRKOY    TM10    NaN
 4   2024-10-01  0   1   OTOYOL  UMRANIYE DEV.HAST-CAKMAK MAH-ATASEHIR-USTBOSTANCI   Aktarma     1   1   INDIRIMLI2  Indirimli Tip 2 Aktarma
 &lt;/data&gt;
-Using duckdb, write a piece of code that filters the dataframe where the column &#39;road_type&#39; is &#39;RAYLI&#39;.
-&lt;/instruction&gt;</code></pre>
-<h2 id="answer-3">Answer</h2>
+&lt;/context&gt;</code></pre>
+<h2 id="answer-4">Answer</h2>
 <p>Here’s an example of how you can filter the DataFrame using
 DuckDB:</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Create a connection to the dataset</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> hourly_transportation <span class="kw">AS</span> <span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> @hourly_transportation_202410;</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Filter the DataFrame where &#39;road_type&#39; is &#39;RAYLI&#39;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> hourly_transportation <span class="kw">WHERE</span> road_type <span class="op">=</span> <span class="st">&#39;RAYLI&#39;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Create a connection to the dataset</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> hourly_transportation <span class="kw">AS</span> <span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> @hourly_transportation_202410;</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Filter the DataFrame where &#39;road_type&#39; is &#39;RAYLI&#39;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> hourly_transportation <span class="kw">WHERE</span> road_type <span class="op">=</span> <span class="st">&#39;RAYLI&#39;</span>;</span></code></pre></div>
 <p>However, since we’re using pandas and DuckDB’s python interface
 (pyduckdb), we can use the following code:</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyducksql</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a connection to the dataset</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> pyducksql.<span class="ex">connect</span>(<span class="st">&#39;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&#39;</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the DataFrame where &#39;road_type&#39; is &#39;RAYLI&#39;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="op">=</span> conn.execute(<span class="st">&#39;SELECT * FROM hourly_transportation WHERE road_type = </span><span class="ch">\&#39;</span><span class="st">RAYLI</span><span class="ch">\&#39;</span><span class="st">&#39;</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the filtered DataFrame</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_filtered)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyducksql</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a connection to the dataset</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> pyducksql.<span class="ex">connect</span>(<span class="st">&#39;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&#39;</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the DataFrame where &#39;road_type&#39; is &#39;RAYLI&#39;</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="op">=</span> conn.execute(<span class="st">&#39;SELECT * FROM hourly_transportation WHERE road_type = </span><span class="ch">\&#39;</span><span class="st">RAYLI</span><span class="ch">\&#39;</span><span class="st">&#39;</span>)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the filtered DataFrame</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_filtered)</span></code></pre></div>
 <p>This code connects to the dataset, filters the DataFrame using
 DuckDB’s SQL syntax, and prints the filtered results.</p>
 <h3 id="bingo">Bingo!</h3>
 <p>We got a false answer. This code looks legitimate but it is
 completely wrong. For this example I used <code>llama3.2</code>.</p>
 <p>Here is ChatGPT with the same instructions:</p>
-<h2 id="prompt-5">Prompt</h2>
-<pre><code>&lt;instructions&gt;
-We have a data frame at the URL https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv 
-How do we import the data into a DataFrame using pandas library?
-&lt;/instructions&gt;</code></pre>
-<h2 id="answer-4">Answer</h2>
+<h2 id="prompt-7">Prompt</h2>
+<pre><code>We have a data frame at the URL https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv 
+How do we import the data into a DataFrame using pandas library?</code></pre>
+<h2 id="answer-5">Answer</h2>
 <p>To import the CSV data from the provided URL into a Pandas DataFrame,
 you can use the following Python code:</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&quot;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div>
-<h2 id="prompt-6">Prompt</h2>
-<pre><code>&lt;instructions&gt;
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&quot;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div>
+<h2 id="prompt-8">Prompt</h2>
+<pre><code>&lt;task&gt;
+Using duckdb, write a piece of code that filters the dataframe where the column &#39;road_type&#39; is &#39;RAYLI&#39;.
+&lt;/task&gt;
+&lt;context&gt;
 Here is the first 4 lines of the data frame we imported:
 &lt;data&gt;
 transition_date     transition_hour     transport_type_id   road_type   line    transfer_type   number_of_passage   number_of_passenger     product_kind    transaction_type_desc   town    line_name   station_poi_desc_cd
@@ -371,53 +571,52 @@ transition_date     transition_hour     transport_type_id   road_type   line    
 3   2024-10-01  0   1   OTOYOL  YESILPINAR - ALIBEYKOY METRO    Aktarma     1   1   TAM     Tam Aktarma     BAKIRKOY    TM10    NaN
 4   2024-10-01  0   1   OTOYOL  UMRANIYE DEV.HAST-CAKMAK MAH-ATASEHIR-USTBOSTANCI   Aktarma     1   1   INDIRIMLI2  Indirimli Tip 2 Aktarma
 &lt;/data&gt;
-Using duckdb, write a piece of code that filters the dataframe where the column &#39;road_type&#39; is &#39;RAYLI&#39;.
-&lt;/instructions&gt;</code></pre>
-<h2 id="answer-5">Answer</h2>
+&lt;/context&gt;</code></pre>
+<h2 id="answer-6">Answer</h2>
 <p>Here’s how you can filter the DataFrame using DuckDB for rows where
 road_type is ‘RAYLI’:</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&quot;</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Use DuckDB to filter the DataFrame</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">&quot;SELECT * FROM df WHERE road_type = &#39;RAYLI&#39;&quot;</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> duckdb.query(query).to_df()</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the filtered data</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(filtered_df.head())</span></code></pre></div>
-<h2 id="prompt-7">Prompt</h2>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&quot;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Use DuckDB to filter the DataFrame</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">&quot;SELECT * FROM df WHERE road_type = &#39;RAYLI&#39;&quot;</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> duckdb.query(query).to_df()</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the filtered data</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(filtered_df.head())</span></code></pre></div>
+<h2 id="prompt-9">Prompt</h2>
 <pre><code>Write a piece of code using duckdb that filters the dataframe where the column &#39;road_type&#39; is &#39;RAYLI&#39; and group by the column transition_hour. Then the code should sum up number_of_passage and finally display the results by sorting the results with respect to transition_hour.</code></pre>
-<h2 id="answer-6">Answer</h2>
+<h2 id="answer-7">Answer</h2>
 <p>Here’s a complete code snippet using DuckDB to filter, group, sum,
 and sort the DataFrame as specified:</p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&quot;</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># DuckDB query to filter, group, sum, and sort</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT </span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="st">    transition_hour, </span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="st">    SUM(number_of_passage) AS total_passages</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="st">FROM df</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE road_type = &#39;RAYLI&#39;</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY transition_hour</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY transition_hour</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the query</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>result_df <span class="op">=</span> duckdb.query(query).to_df()</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the result</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result_df)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv&quot;</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># DuckDB query to filter, group, sum, and sort</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT </span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="st">    transition_hour, </span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="st">    SUM(number_of_passage) AS total_passages</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="st">FROM df</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE road_type = &#39;RAYLI&#39;</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY transition_hour</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY transition_hour</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the query</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>result_df <span class="op">=</span> duckdb.query(query).to_df()</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the result</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result_df)</span></code></pre></div>
 </body>
 </html>

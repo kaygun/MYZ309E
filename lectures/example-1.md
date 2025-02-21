@@ -1,6 +1,54 @@
+# Prompt
+```
+<task>
+Rewrite the following e-mail. 
+</task>
+<instructions>
+Be polite, direct, and concise. State what you need in the first two sentences. Sign your e-mail with your name and student number. 
+</instructions>
+<email>
+Hi teacher, 
+I was coming to school today but the bus broke down. I was so stressed. I tried to find other busses but the road was closed. 
+The weather was also bad. So, I missed our lecture. My name is Ali. I don't know any body from the class either. I started one 
+semester late. I am an "irregular". Can you send me your class notes? Is there any place I can get them. This would be 
+super helpful. 
+
+See you next week teacher.
+</email>
+```
+
+# Response 
+
+
+    Hello Teacher,
+
+    I unfortunately missed today's lecture due to transportation issues. I would be grateful if you could provide me with a copy of the class notes. Is there a central location where I can access them?
+
+    Thank you for your understanding.
+
+    Sincerely,
+	Ali
+	[Student Number]
+
+
 # Prompt \# 1
 
 ```
+<task>
+Explain what the following block of python code does with the context given below. 
+</task>
+<instructions>
+Be direct. Do not simplify the language.  The audience knows the mathematical theory 
+behind the code. So, provide mathematical details with formulas if necessary.
+</instructions>
+<code>
+    X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
+    Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
+    mean_x = X.mean()
+    mean_y = Y.mean()
+    m = ((X - mean_x) * (Y - mean_y)).sum() / np.power(X - mean_x, 2).sum()
+    b = mean_y - m * mean_x	
+</code>
 <context>
 You are a senior programmer and data scientist working at a data science startup. You have
 several junior data scientist working under you, and you are helping them to understand
@@ -8,65 +56,251 @@ company's code base. Your task is to write protype code for a task, and they nee
 your code. They need to rewrite the code to make it more efficient and then they need merge
 newly written code into company's code base.
 </context>
-<task>
-Explain what the following block of python code does with the context given above. Be direct.
-The audience knows the mathematical theory behind the code. So, provide mathematical details
-with formulas if necessary.
-
-    X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
-    Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
-    mean_x = X.mean()
-    mean_y = Y.mean()
-    m = ((X - mean_x) * (Y - mean_y)).sum() / np.power(X - mean_x, 2).sum()
-    b = mean_y - m * mean_x
-	
-</task>
 ```
 
 # Answer \# 1
 
-The provided Python code block is implementing the calculation of the parameters for a simple linear regression line. The goal is to find the best-fit line through a set of points, which minimizes the sum 
-of squared differences between observed values and those predicted by the line. This can be described mathematically as finding $m$ (the slope) and $b$ (the y-intercept) in the linear equation:
+This block of Python code computes the **ordinary least squares (OLS) regression coefficients** for a simple linear regression model:
 
 $$ Y = mX + b $$
 
-Here's a step-by-step breakdown of what each part of the code does:
+where $X$ is the independent variable and $Y$ is the dependent variable.
 
-1. **Data Preparation**:
-   - `X` and `Y` are numpy arrays representing the independent variable data points and dependent variable data points, respectively.
-   - These are converted to float type to ensure accurate calculations.
+## Define Data
 
-2. **Mean Calculation**:
-   - `mean_x = X.mean()`: Computes the mean (average) of all values in array $X$.
-   - `mean_y = Y.mean()`: Computes the mean (average) of all values in array $Y$.
+Two NumPy arrays are created:  
 
-3. **Slope Calculation ($m$)**:
-   - The formula for calculating the slope $m$ is derived from the least squares method and can be expressed as:
+- $X = [1, 2, 4, 6, 8, 10]$
+- $Y = [3, 5, 7, 10, 11, 14]$  
 
-     $$
-     m = \frac{\sum{(X_i - \bar{X})(Y_i - \bar{Y})}}{\sum{(X_i - \bar{X})^2}}
-     $$
+These represent paired data points \((X_i, Y_i)\).
 
-   - `((X - mean_x) * (Y - mean_y)).sum()`: Computes the numerator, which is the sum of products of deviations of $X$ and $Y$ from their respective means.
-   - `np.power(X - mean_x, 2).sum()`: Computes the denominator, which is the sum of squared deviations of $X$ from its mean.
+## Compute Means
 
-4. **Intercept Calculation ($b$)**:
-   - Once the slope $m$ is known, the y-intercept $b$ can be calculated using:
+- $\bar{X} = \frac{1}{n}\sum_{i=1}^{n} X_i$
+- $\bar{Y} = \frac{1}{n}\sum_{i=1}^{n} Y_i$
 
-     $$
-     b = \bar{Y} - m \times \bar{X}
-     $$
+The mean values are used to center the data.
 
-   - `b = mean_y - m * mean_x`: Implements this formula to compute the intercept.
+## Compute the Slope $m$ (Regression Coefficient)
+The slope $m$ is given by the formula:
 
-Overall, the code calculates the slope and intercept for a linear regression model that fits the data points defined in arrays $X$ and $Y$. This line can then be used to predict $Y$ values given new $X$ inputs.
+$$ m = \frac{\sum_{i=1}^{n} (X_i - \bar{X}) (Y_i - \bar{Y})}{\sum_{i=1}^{n} (X_i - \bar{X})^2} $$
 
-# Prompt \# 2
+In the code:
+```python
+m = ((X - mean_x) * (Y - mean_y)).sum() / np.power(X - mean_x, 2).sum()
+```
+This implements the covariance of $X$ and $Y$ divided by the variance of $X$.
+
+## Compute the Intercept $b$
+The intercept is computed as:
+
+$$ b = \bar{Y} - m \bar{X} $$
+
+In the code:
+```python
+b = mean_y - m * mean_x
+```
+This ensures that the regression line passes through the mean of the data.
+
+### **Optimization Considerations**
+
+- The computation of $m$ can be optimized by using NumPy's built-in `np.cov(X, Y, ddof=0)[0,1] / np.var(X, ddof=0)`, which is more efficient.
+- The entire regression fit can be computed using `np.polyfit(X, Y, deg=1)`, which is optimized in C.
+
+## Refactored Code:
+
+```python
+import numpy as np
+
+X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
+Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
+
+# Calculate mean once
+mean = np.mean([X, Y], axis=0)
+
+# Calculate deviations from mean once
+dx, dy = X - mean[0], Y - mean[1]
+
+# Calculate slope and intercept in one step
+m, b = np.linalg.inv(np.dot(dx.T, dx)).dot(np.dot(dx.T, dy))
+
+print("Slope:", m)
+print("Intercept:", b)
+```
+
+## Improvements
+
+- The refactored code calculates the mean and deviations from the mean only once, which improves efficiency.
+- The slope and intercept are calculated in a single step using matrix operations, which is more efficient than the original code.
+
+# Prompt 
+
+```
+Here is what the junior programmer gave: analyze the code for bugs: 
+<code>
+import numpy as np
+
+X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
+Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
+
+# Calculate mean once
+mean = np.mean([X, Y], axis=0)
+
+# Calculate deviations from mean once
+dx, dy = X - mean[0], Y - mean[1]
+
+# Calculate slope and intercept in one step
+m, b = np.linalg.inv(np.dot(dx.T, dx)).dot(np.dot(dx.T, dy))
+</code>
+```
+
+# Answer 
+
+The junior programmer’s code has a **critical bug** in the calculation of the slope $m$ and intercept $b$. Let's analyze the issues:
+
+---
+
+## Identified Bugs
+
+### 1. Incorrect Mean Calculation
+```python
+mean = np.mean([X, Y], axis=0)
+```
+- This calculates the mean across corresponding elements in `X` and `Y`, not the individual means of `X` and `Y`.
+- Correct approach:
+  ```python
+  mean_x, mean_y = np.mean(X), np.mean(Y)
+  ```
+
+### 2. Incorrect Mean Deviations
+```python
+dx, dy = X - mean[0], Y - mean[1]
+```
+- Since `mean` is incorrectly computed as a vectorized mean across both `X` and `Y`, `mean[0]` and `mean[1]` do not represent the means of `X` and `Y`, respectively.
+- Instead, they contain incorrect values due to improper broadcasting.
+- Fix:
+  ```python
+  dx, dy = X - mean_x, Y - mean_y
+  ```
+
+### 3. Incorrect Regression Formula
+```python
+m, b = np.linalg.inv(np.dot(dx.T, dx)).dot(np.dot(dx.T, dy))
+```
+
+#### Mistake:  
+
+- The slope formula in simple linear regression is:  
+  $$
+  m = \frac{\sum (X_i - \bar{X}) (Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2}
+  $$
+
+- The above line incorrectly tries to use a matrix inversion approach meant for multiple linear regression, but in simple linear regression, $X$ is a vector, not a matrix.
+
+- The correct formula should be:
+  ```python
+  m = np.sum(dx * dy) / np.sum(dx  2)
+  ```
+  
+- Intercept $b$ is missing  
+
+- The intercept $b$ must be explicitly calculated:
+  ```python
+  b = mean_y - m * mean_x
+  ```
+
+### Corrected Code 
+```python
+import numpy as np
+
+X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
+Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
+
+# Compute correct means
+mean_x, mean_y = np.mean(X), np.mean(Y)
+
+# Compute deviations
+dx, dy = X - mean_x, Y - mean_y
+
+# Correct slope computation
+m = np.sum(dx * dy) / np.sum(dx  2)
+
+# Correct intercept computation
+b = mean_y - m * mean_x
+
+print(f"Slope (m): {m}, Intercept (b): {b}")
+```
+
+### Hand Corrected Code (v1)
+```python
+import numpy as np
+
+X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
+Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
+
+# Compute correct means
+mean_x, mean_y = np.mean(X), np.mean(Y)
+
+# Compute deviations
+dx, dy = X - mean_x, Y - mean_y
+
+# Correct slope computation
+m = np.dot(dx,dy) / np.dot(dx,dx)
+
+# Correct intercept computation
+b = mean_y - m * mean_x
+
+print(f"Slope (m): {m}, Intercept (b): {b}")
+```
+
+### Hand Corrected Code (v2)
+```python
+import numpy as np
+
+X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
+Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
+
+# Compute correct means
+mean_x, mean_y = np.mean(X), np.mean(Y)
+
+# Correct slope computation
+m = np.cov(X,Y,ddof=0)[0,1] / np.var(X,ddof=0)
+
+# Correct intercept computation
+b = mean_y - m * mean_x
+
+print(f"Slope (m): {m}, Intercept (b): {b}")
+```
+
+### Hand Corrected Code (v3)
+```python
+import numpy as np
+
+X = np.array([1, 2, 4, 6, 8, 10], dtype=float)
+Y = np.array([3, 5, 7, 10, 11, 14], dtype=float)
+
+m,b = np.polyfit(X,Y,deg=1)
+
+print(f"Slope (m): {m}, Intercept (b): {b}")
+```
+
+# Prompt 
 
 ```
 <task>
-Your team is asked to process a dataset provided by Istanbul Municipality data server. Here is sample of the provided dataset:
+Explain in detail what this piece of code does. Provide a native pandas implementation.
+</task>
+<context>
+You are a senior programmer and data scientist working at a data science startup. You have
+several junior data scientist working under you, and you are helping them to understand
+company's code base. Your task is to write protype code for a task, and they need to refactor
+your code. They need to rewrite the code to make it more efficient and then they need merge
+newly written code into company's code base.
 
+Your team is asked to process a dataset provided by Istanbul Municipality data server. 
+Here is sample of the provided dataset:
 <data>
 transition_date 	transition_hour 	transport_type_id 	road_type 	line 	transfer_type 	number_of_passage 	number_of_passenger 	product_kind 	transaction_type_desc 	town 	line_name 	station_poi_desc_cd
 0 	2024-10-01 	0 	1 	OTOYOL 	CEBECI - TAKSIM 	Normal 	3 	3 	TAM 	Tam Kontur 	SARIYER 	36T 	NaN
@@ -75,8 +309,6 @@ transition_date 	transition_hour 	transport_type_id 	road_type 	line 	transfer_t
 3 	2024-10-01 	0 	1 	OTOYOL 	YESILPINAR - ALIBEYKOY METRO 	Aktarma 	1 	1 	TAM 	Tam Aktarma 	BAKIRKOY 	TM10 	NaN
 4 	2024-10-01 	0 	1 	OTOYOL 	UMRANIYE DEV.HAST-CAKMAK MAH-ATASEHIR-USTBOSTANCI 	Aktarma 	1 	1 	INDIRIMLI2 	Indirimli Tip 2 Aktarma
 </data>
-
-You wrote the following piece of code using duckdb:
 <code>
 result = db.sql("""
   select sum(number_of_passage) as total, transition_hour as hour 
@@ -86,11 +318,10 @@ result = db.sql("""
      order by hour
 """).to_df()
 </code>
-Explain in detail what this piece of code does. The previous instructions are still valid.
-</task>
+</context>
 ```
 
-# Answer \# 2
+# Answer 
 
 The provided code snippet is written using DuckDB, which is an in-process SQL OLAP database management system. It's designed to handle analytical queries on datasets and is especially useful for working 
 with large dataframes directly in Python.
@@ -135,9 +366,21 @@ of this type.
    - The overall purpose of this code block is to calculate and organize the total number of passages that occur for each hour on roads classified as `'RAYLI'`. The output is a structured DataFrame where 
 each row represents an hour with its corresponding total number of passages.
 
-This analysis could be useful for understanding traffic patterns or passenger flow specifically related to certain road types during different hours of the day.
+6. **Pandas-Based Alternative:**
 
-# Prompt \# 3
+    Instead of SQL, if the data is already loaded in Pandas:
+
+	```python
+	result = (
+		data[data["road_type"] == "RAYLI"]
+		.groupby("transition_hour")["number_of_passage"]
+		.sum()
+		.reset_index()
+		.sort_values("transition_hour")
+	)
+	```
+
+# Prompt 
 
 Even if we are careful in constructing our prompts, LLMs sometimes tend to *hallucinate* Consider the following exchanges:
 
@@ -145,10 +388,8 @@ Even if we are careful in constructing our prompts, LLMs sometimes tend to *hall
 ## Prompt
 
 ```
-<instructions>
 We have a data frame at the URL https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv 
 How do we import the data into a DataFrame using pandas library?
-</instructions>
 ```
 
 ## Answer
@@ -176,7 +417,10 @@ Please note that you may need to install the required libraries (in this case, p
 ## Prompt
 
 ```
-<instructions>
+<task>
+Using duckdb, write a piece of code that filters the dataframe where the column 'road_type' is 'RAYLI'.
+</task>
+<context>
 Here is the first 4 lines of the data frame we imported:
 <data>
 transition_date 	transition_hour 	transport_type_id 	road_type 	line 	transfer_type 	number_of_passage 	number_of_passenger 	product_kind 	transaction_type_desc 	town 	line_name 	station_poi_desc_cd
@@ -186,8 +430,7 @@ transition_date 	transition_hour 	transport_type_id 	road_type 	line 	transfer_t
 3 	2024-10-01 	0 	1 	OTOYOL 	YESILPINAR - ALIBEYKOY METRO 	Aktarma 	1 	1 	TAM 	Tam Aktarma 	BAKIRKOY 	TM10 	NaN
 4 	2024-10-01 	0 	1 	OTOYOL 	UMRANIYE DEV.HAST-CAKMAK MAH-ATASEHIR-USTBOSTANCI 	Aktarma 	1 	1 	INDIRIMLI2 	Indirimli Tip 2 Aktarma
 </data>
-Using duckdb, write a piece of code that filters the dataframe where the column 'road_type' is 'RAYLI'.
-</instruction>
+</context>
 ```
 
 ## Answer
@@ -228,10 +471,8 @@ Here is ChatGPT with the same instructions:
 ## Prompt
 
 ```
-<instructions>
 We have a data frame at the URL https://data.ibb.gov.tr/tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ea8daee8-62e4-4c42-903f-15b5e372d902/download/hourly_transportation_202410.csv 
 How do we import the data into a DataFrame using pandas library?
-</instructions>
 ```
 
 ## Answer
@@ -251,7 +492,10 @@ print(df.head())
 ## Prompt
 
 ```
-<instructions>
+<task>
+Using duckdb, write a piece of code that filters the dataframe where the column 'road_type' is 'RAYLI'.
+</task>
+<context>
 Here is the first 4 lines of the data frame we imported:
 <data>
 transition_date     transition_hour     transport_type_id   road_type   line    transfer_type   number_of_passage   number_of_passenger     product_kind    transaction_type_desc   town    line_name   station_poi_desc_cd
@@ -261,8 +505,7 @@ transition_date     transition_hour     transport_type_id   road_type   line    
 3   2024-10-01  0   1   OTOYOL  YESILPINAR - ALIBEYKOY METRO    Aktarma     1   1   TAM     Tam Aktarma     BAKIRKOY    TM10    NaN
 4   2024-10-01  0   1   OTOYOL  UMRANIYE DEV.HAST-CAKMAK MAH-ATASEHIR-USTBOSTANCI   Aktarma     1   1   INDIRIMLI2  Indirimli Tip 2 Aktarma
 </data>
-Using duckdb, write a piece of code that filters the dataframe where the column 'road_type' is 'RAYLI'.
-</instructions>
+</context>
 ```
 
 ## Answer
