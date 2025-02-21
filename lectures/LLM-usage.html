@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js//dist/theme/moon.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js//dist/theme/league.css" id="theme">
 </head>
 <body>
   <div class="reveal">
@@ -56,17 +56,26 @@ Models (LLMs)</a> are a class machine learning architectures designed
 for <a
 href="https://en.wikipedia.org/wiki/Natural_language_processing">natural
 language processing (NLP)</a> tasks.</p></li>
-<li class="fragment"><p>LLMs are based on <a
+<li class="fragment"><p>They generate text based on learned statistical
+distributions.</p></li>
+<li class="fragment"><p>They function as probabilistic sequence
+generators based on <a
 href="https://en.wikipedia.org/wiki/Recurrent_neural_network">recurrent
-neural networks (RNN)</a> that are designed to process sequential
-data.</p></li>
+neural networks (RNN)</a>that process sequential data.</p></li>
+</ul>
+</section>
+<section id="what-is-a-large-language-model-1" class="slide level2">
+<h2>What is a Large Language Model</h2>
+<ul>
+<li class="fragment"><p>They leverage high-dimensional token embeddings
+and transformer architectures</p></li>
 <li class="fragment"><p>What makes them different is the <a
 href="https://en.wikipedia.org/wiki/Attention_(machine_learning)">attentian
 mechanism</a></p></li>
 </ul>
 </section>
-<section id="llm-components" class="slide level2">
-<h2>LLM components</h2>
+<section id="components-of-an-llm" class="slide level2">
+<h2>Components of an LLM</h2>
 <ul>
 <li class="fragment"><strong>An Encoder</strong>: converting input text
 to vectors</li>
@@ -94,8 +103,8 @@ tokens</li>
 </ul>
 </section></section>
 <section>
-<section id="writing-prompts" class="title-slide slide level1">
-<h1>Writing Prompts</h1>
+<section id="prompts" class="title-slide slide level1">
+<h1>Prompts</h1>
 
 </section>
 <section id="what-is-a-prompt" class="slide level2">
@@ -111,33 +120,124 @@ tokens</li>
 <li class="fragment">output based on its internal knowledge</li>
 </ul>
 </section>
-<section id="constructing-prompts" class="slide level2">
-<h2>Constructing Prompts</h2>
-</section>
-<section id="provide-a-context" class="slide level2">
-<h2>Provide a context</h2>
+<section id="anatomy-of-a-good-prompt" class="slide level2">
+<h2>Anatomy of a good prompt</h2>
 <ul>
-<li class="fragment">be clear and concise</li>
-<li class="fragment">use a simple language</li>
-<li class="fragment">use specific keywords</li>
+<li class="fragment">your goal(s)</li>
+<li class="fragment">the return format</li>
+<li class="fragment">any wanrnings</li>
+<li class="fragment">context</li>
 </ul>
 </section>
-<section id="specify-output" class="slide level2">
-<h2>Specify output</h2>
+<section id="specify-your-goal" class="slide level2">
+<h2>Specify your goal</h2>
 <ul>
-<li class="fragment">clearly describe what you want
-<ul>
-<li class="fragment">answer</li>
-<li class="fragment">explanation</li>
-<li class="fragment">comparison</li>
-</ul></li>
-<li class="fragment">phrase questions in a neutral way</li>
-<li class="fragment">provide an example if possible</li>
+<li class="fragment">LLMs sample from probability distributions over
+words.</li>
+<li class="fragment">Ambiguity increases the entropy.</li>
+<li class="fragment">This may result in less useful esponses.</li>
 </ul>
 </section>
-<section id="an-example" class="slide level2">
-<h2>An Example</h2>
-<p><a href="./example-1.html">Here</a></p>
+<section id="goal-best-practices" class="slide level2">
+<h2>Goal: best practices</h2>
+<ul>
+<li class="fragment">State what you need.</li>
+<li class="fragment">Use specific keywords.</li>
+<li class="fragment">Use specific mathematical notation if
+applicable.</li>
+<li class="fragment">Avoid open-ended and vague language.</li>
+<li class="fragment">Disambiguate: “gradient” in optimization vs. vector
+calculus.</li>
+</ul>
+</section>
+<section id="goal-an-example" class="slide level2">
+<h2>Goal: an example</h2>
+<p>❌ <em>“Describe gradients.”</em><br />
+✅ <em>“In the context of deep learning, describe the role of gradients
+in backpropagation, specifically focusing on how they relate to the
+Jacobian matrix of the loss function with respect to network
+parameters.”</em></p>
+</section>
+<section id="specify-the-return-format" class="slide level2">
+<h2>Specify the return format</h2>
+<ul>
+<li class="fragment">LLMs generate text autoregressively.</li>
+<li class="fragment">Defining structure constrains the output to an
+expected form.</li>
+<li class="fragment">This improves readability and usability.</li>
+</ul>
+</section>
+<section id="format-best-practices" class="slide level2">
+<h2>Format: best practices</h2>
+<ul>
+<li class="fragment">Specify desired structure (e.g., step-by-step,
+theorem-proof format, code block).</li>
+<li class="fragment">Indicate output format (e.g., LaTeX, markdown,
+JSON, Python).</li>
+<li class="fragment">Clearly describe what you want (e.g. answer,
+explanation, comparison).</li>
+<li class="fragment">Indicate depth (e.g., formal proof
+vs. intuition).</li>
+</ul>
+</section>
+<section id="format-an-example" class="slide level2">
+<h2>Format: an example</h2>
+<p>❌ <em>“Write Python code for matrix inversion.”</em><br />
+✅ <em>“Provide a Python implementation of matrix inversion using NumPy,
+formatted as a function definition, and include time complexity
+analysis.”</em></p>
+</section>
+<section id="add-constraints" class="slide level2">
+<h2>Add constraints</h2>
+<ul>
+<li class="fragment">LLMs operate on learned distributions.</li>
+<li class="fragment">These tend to default to general assumptions.</li>
+<li class="fragment">Explicitly stating constraints forces model to
+conform.</li>
+</ul>
+</section>
+<section id="constraints-best-practices" class="slide level2">
+<h2>Constraints: best practices</h2>
+<ul>
+<li class="fragment">State any numerical constraints (e.g., “for n &lt;
+1000” or “in the limit as x → 0”).</li>
+<li class="fragment">Define assumptions on inputs (e.g., “Assume all
+functions are continuously differentiable”).</li>
+<li class="fragment">Clarify computational constraints (e.g., “Optimize
+for O(n log n) complexity”).</li>
+</ul>
+</section>
+<section id="constraints-and-example" class="slide level2">
+<h2>Constraints: and example</h2>
+<p>❌ <em>“Find the eigenvalues of a matrix.”</em><br />
+✅ <em>“Find the eigenvalues of a symmetric 3×3 matrix with real entries
+and discuss their properties in terms of the spectral theorem.”</em></p>
+</section>
+<section id="provide-context" class="slide level2">
+<h2>Provide Context</h2>
+<ul>
+<li class="fragment">LLMs generate responses based on conditional
+probabilities.</li>
+<li class="fragment">Without sufficient context model output
+distribution is broad and not relevant.</li>
+</ul>
+</section>
+<section id="context-best-practices" class="slide level2">
+<h2>Context: best practices</h2>
+<ul>
+<li class="fragment">Define domain (e.g., mathematical, scientific,
+programming-related).</li>
+<li class="fragment">Provide background.</li>
+<li class="fragment">Reiterate key points instead of assuming model
+retains session memory.</li>
+</ul>
+</section>
+<section id="context-and-example" class="slide level2">
+<h2>Context: and example</h2>
+<p>❌ <em>“Explain entropy.”</em><br />
+✅ <em>“Explain entropy in the context of information theory, assuming
+the Shannon definition, and provide the mathematical
+formulation.”</em></p>
 </section></section>
     </div>
   </div>
