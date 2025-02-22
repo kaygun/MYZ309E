@@ -4,14 +4,16 @@
 Rewrite the following e-mail. 
 </task>
 <instructions>
-Be polite, direct, and concise. State what you need in the first two sentences. Sign your e-mail with your name and student number. 
+Be polite, direct, and concise. State what you need in the first two sentences. 
+Sign your e-mail with your name and student number. 
 </instructions>
 <email>
 Hi teacher, 
-I was coming to school today but the bus broke down. I was so stressed. I tried to find other busses but the road was closed. 
-The weather was also bad. So, I missed our lecture. My name is Ali. I don't know any body from the class either. I started one 
-semester late. I am an "irregular". Can you send me your class notes? Is there any place I can get them. This would be 
-super helpful. 
+I was coming to school today but the bus broke down. I was so stressed. I tried to 
+find other busses but the road was closed. The weather was also bad. So, I missed 
+our lecture. My name is Ali. I don't know any body from the class either. I started 
+one semester late. I am an "irregular". Can you send me your class notes? Is there 
+any place I can get them. This would be super helpful. 
 
 See you next week teacher.
 </email>
@@ -22,7 +24,9 @@ See you next week teacher.
 
     Hello Teacher,
 
-    I unfortunately missed today's lecture due to transportation issues. I would be grateful if you could provide me with a copy of the class notes. Is there a central location where I can access them?
+    I unfortunately missed today's lecture due to transportation issues. I would be grateful 
+	if you could provide me with a copy of the class notes. Is there a central location where 
+	I can access them?
 
     Thank you for your understanding.
 
