@@ -65,6 +65,11 @@ For the final project, you need to talk to me one-on-one to determine your final
 complete depending on your interests.  Again, depending on your performance, I might also ask you
 to give an oral presentation on your final project.
 
+## Attendance
+
+I will collect a written attendance in each lecture. I will use the attendance records for those 
+students that are edge cases in their grades. (Push them up or down.)
+
 ## Technical requirements
 
 The course is an applied data analysis class, and your performance is going to be judged from 5
